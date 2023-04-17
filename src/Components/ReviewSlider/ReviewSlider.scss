@@ -1,0 +1,121 @@
+.section {
+    background: #e6e0e0;
+    padding: 10px 0;
+    padding-bottom: 40px;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: 'Titillium Web';
+
+    h2 {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      span {
+        color: #fca311;
+      }
+    }
+  }
+  
+  .section-center {
+    width: 30vw;
+    margin: 0 auto;
+    position: relative;
+
+    .person-img {
+      border-radius: 50%;
+      margin: auto;
+      margin-bottom: 20px;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    h4{
+        text-align: center;
+        margin: 10px 0;
+        font-family: 'Josefin Sans';
+        font-size: 20px;
+    }
+
+    .review-para{
+        text-align: justify;
+        font-family: 'Open Sans';
+        font-size: 14px;
+    }
+
+    article {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 0;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      transform: translateY(-50%);
+      &.activeSlide {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.1);
+        z-index: 2;
+      }
+      &.lastSlide {
+        transform: translateY(-50%) translateX(-100%);
+        z-index: 1;
+      }
+      &.nextSlide {
+        transform: translateY(-50%) translateX(100%);
+        z-index: 1;
+      }
+      h4 {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        margin-bottom: 0.5rem;
+      }
+      .title {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: #777;
+        margin-bottom: 0.5rem;
+      }
+      .text {
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.8;
+      }
+      .icon {
+        font-size: 1.5rem;
+        color: #fca311;
+        margin-top: 1rem;
+        display: block;
+      }
+    }
+    
+    button {
+      background: transparent;
+      border-color: transparent;
+      color: #fca311;
+      font-size: 2rem;
+      margin-top: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: #4b4b4b;
+      }
+      &.prev {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      &.next {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  

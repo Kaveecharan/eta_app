@@ -1,0 +1,129 @@
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  margin: 0 auto;
+  margin-top: 20px;
+
+  .slider-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+
+    &.active {
+      opacity: 1;
+    }
+
+    .slider-image-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-out;
+      }
+    }
+
+    .slider-info-container {
+      position: absolute;
+      top: 55%;
+      left: 75%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 1;
+
+      .slider-title {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        font-family: 'Rajdhani';
+        font-weight: 600;
+        color: rgba(111, 162, 184, 0.8);
+      }
+
+      .slider-desc {
+        font-size: 21px;
+        margin-bottom: 2rem;
+        font-family: 'Josefin Sans';
+        color: rgb(5, 62, 116);
+        font-weight: 600;
+      }
+    }
+  }
+
+  .slider-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgba(124, 175, 196, 0.8);
+    }
+
+    &-left {
+      left: 20px;
+    }
+
+    &-right {
+      right: 20px;
+    }
+
+    .slider-arrow-icon {
+      font-size: 2rem;
+      color: black;
+    }
+  }
+
+  .slider-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0 5px;
+      padding: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &.active {
+        background-color: black;
+      }
+
+      &:hover {
+        background-color: black;
+      }
+    }
+  }
+}

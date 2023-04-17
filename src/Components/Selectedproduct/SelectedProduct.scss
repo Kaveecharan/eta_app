@@ -1,0 +1,87 @@
+.product-details{
+  width: 98%;
+}
+
+.product-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 70vh;
+  margin-top: 30px;
+
+
+  .thumb-image{
+    width: 450px;
+    height: 280px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .image-list {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    height: 120px;
+
+    .image {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      margin-bottom: 10px;
+      margin: 5px;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      cursor: pointer;
+
+      &.selected {
+        border: 2px solid rgba(111, 162, 184, 0.8);
+      }
+    }
+  }
+}
+
+.product-details-card {
+  display: flex;
+  margin-top: 40px;
+  font-family: 'Josefin Sans';
+  font-size: 18px;
+  font-weight: 600;
+
+  .ant-card-meta-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .ant-card-meta-description {
+    margin-bottom: 10px;
+  }
+
+  .product-details-brand {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .product-details-price {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .product-details-rating {
+
+    .ant-rate {
+      font-size: 24px;
+    }
+  }
+  
+  .product-details-stock {
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .ant-btn {
+    width: 50%;
+  }
+}

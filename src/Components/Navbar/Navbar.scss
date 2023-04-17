@@ -1,0 +1,61 @@
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 8px #f0f1f2;
+  padding: 16px;
+
+  &__container {
+    @include flex-center();
+    justify-content: space-between;
+    max-width: 1200px; /* add max-width to limit container width */
+    margin: 0 auto; /* add margin to center container horizontally */
+    width: 100%; /* add width for IE11 support */
+  }
+
+  &__company {
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Titillium Web';
+    cursor: pointer;
+  }
+
+  &__right{
+    @include flex-center();
+  }
+
+  &__categories {
+    margin: 0 16px;
+    font-size: 17px;
+    font-family: 'Titillium Web';
+
+    .ant-dropdown-trigger {
+      cursor: pointer;
+    }
+  }
+
+  &__search {
+    flex: 1;
+    margin-left: 16px;
+    max-width: 400px;
+
+    .ant-input-search {
+      width: 100%;
+      height: 40px;
+      padding: 0 16px;
+      font-size: 14px;
+      margin: auto;
+      align-items: center;
+      display: flex;
+      outline: none;
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+  }
+}
