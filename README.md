@@ -2,6 +2,29 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## This is a React app built with the following technologies:
+
+React version 16
+Redux
+Ant Design (antd) for designing
+SCSS for styling
+Libraries: Axios, Redux Toolkit, React Router DOM
+The app uses the MVC (Model-View-Controller) architecture.
+
+## Functionality
+The app has the following functionality:
+
+Fetches all products using an API
+Shows a loading skeleton for the images while loading
+Implements pagination to see more products
+Allows users to filter products based on categories or search
+Allows users to select a product and view its details and reviews
+Allows users to add products to the cart
+Shows notifications when items are added to the cart
+Allows users to remove items from the cart
+Includes home, product, and error pages
+Uses layout for the pages
+
 ## Available Scripts
 
 In the project directory, you can run:
