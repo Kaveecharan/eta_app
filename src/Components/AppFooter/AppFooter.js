@@ -1,40 +1,72 @@
 import React from 'react';
-import { Layout } from 'antd';
-import './AppFooter.scss';
+import { Row, Col } from 'antd';
+import { PhoneOutlined, MailOutlined, EnvironmentOutlined, TwitterOutlined, FacebookOutlined, InstagramOutlined } from '@ant-design/icons';
+import Logo from '../../Assests/Logo.png'
+import FooterImage from '../../Assests/FooterImage.png'
 
-const { Footer } = Layout;
+import './AppFooter.scss';
 
 const AppFooter = () => {
   return (
-    <Footer className="footer-container">
-      <div className="footer-content">
-        <div className="footer-column">
-          <h3 className="footer-heading">About Us</h3>
-          <p className="footer-text">We're a one-stop shop for all your online shopping needs. Our mission is to provide high-quality products at affordable prices, with exceptional customer service to match.</p>
-        </div>
-        <div className="footer-column">
-          <h3 className="footer-heading">Categories</h3>
-          <ul className="footer-list">
-            <li><a href="#">Electronics</a></li>
-            <li><a href="#">Home & Garden</a></li>
-            <li><a href="#">Fashion & Beauty</a></li>
-            <li><a href="#">Toys & Games</a></li>
-            <li><a href="#">Sports & Outdoors</a></li>
-          </ul>
-        </div>
-        <div className="footer-column">
-          <h3 className="footer-heading">Contact Us</h3>
-          <p className="footer-text">Feel free to reach out to us with any questions or concerns:</p>
-          <ul className="footer-list">
-            <li><a href="#">Email: support@ETAShopping.com</a></li>
-            <li><a href="#">Phone: 555-123-4567</a></li>
-          </ul>
-        </div>
+    <div className='footer'>
+      <img className='footer-image' src={FooterImage} alt='footer-image'/>
+      <div className='footer-container'>
+        <Row gutter={16}>
+          <Col xs={24} sm={12} md={6}>
+            <div className='footer-column'>
+              <img className='footer-logo' src={Logo} alt='logo'/>
+            </div>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <div className='footer-column'>
+              <h3 className='heading'>CONTACT US</h3>
+              <div className='contact-details'>
+                <div className='contact-row'>
+                  <PhoneOutlined />
+                  <p>1-800-123-4567</p>
+                </div>
+                <div className='contact-row'>
+                  <MailOutlined />
+                  <p>info@company.com</p>
+                </div>
+                <div className='contact-row'>
+                  <EnvironmentOutlined />
+                  <p>123 Main St, Anytown USA</p>
+                </div>
+              </div>
+            </div>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <div className='footer-column'>
+              <h3 className='heading'>NAVIGATE</h3>
+              <div className='navigate-links'>
+                <p>Home</p>
+                <p>About Us</p>
+                <p>Services</p>
+                <p>Contact Us</p>
+              </div>
+            </div>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <div className='footer-column'>
+              <h3 className='heading'>FOLLOW</h3>
+              <div className='social-links'>
+                <TwitterOutlined />
+                <FacebookOutlined />
+                <InstagramOutlined />
+              </div>
+            </div>
+          </Col>
+        </Row>
       </div>
       <div className="footer-bottom">
         <p className="footer-text">© 2023 ETA. All Rights Reserved.</p>
+        <div className='footer-bottom-right'>
+        <p className="footer-text">Terms and Conditions.</p>
+        <p className="footer-text">Privacy Policy.</p>
+        </div>
       </div>
-    </Footer>
+    </div>
   );
 };
 

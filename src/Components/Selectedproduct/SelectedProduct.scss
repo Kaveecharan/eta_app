@@ -43,6 +43,10 @@
   }
 }
 
+.productRating{
+  margin-right: 20px;
+}
+
 .product-details-card {
   display: flex;
   margin-top: 40px;
@@ -62,6 +66,9 @@
   .product-details-brand {
     font-weight: bold;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
   
   .product-details-price {
@@ -84,4 +91,45 @@
   .ant-btn {
     width: 50%;
   }
+}
+
+.breadcrumb {
+  margin: 40px 0 0 80px;
+}
+
+// .product-details-tab{
+//   border: 5px solid saddlebrown;
+//   width: 100%;
+// }
+
+.product-details-tab {
+  width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+
+
+  .ant-tabs-tab {
+    font-size: 26px;
+    font-family: 'Titillium Web';
+    font-weight: 600;
+  }
+
+  .ant-tabs-tabpane {
+    font-size: 18px;
+    font-family: 'Josefin Sans';
+    font-weight: 600;
+    text-align: center;
+
+    ul{
+       list-style-type: none;
+    }
+}
+}
+
+
+.product-detail{
+  margin-left: 30px;
 }

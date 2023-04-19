@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Skeleton, Pagination} from 'antd';
+import { Skeleton, Pagination, Input, Spin  } from 'antd';
 import { StarFilled, StarOutlined, StarTwoTone } from '@ant-design/icons';
-import { ShoppingCartOutlined, SearchOutlined } from '@ant-design/icons';
+import { UpOutlined } from '@ant-design/icons';
 import { Empty } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,6 +16,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState('')
   const [search, setSearch] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('All Products')
   const navigate = useNavigate()
 
   const location = useLocation();
@@ -86,6 +87,19 @@ const Products = () => {
     navigate(`/products/${productId}`);
   };
 
+  
+  const handleSearch = (value) => {
+    let url = '/';
+    if (value) {
+      url += `?search=${value}`;
+      setSelectedCategory('All Products')
+      navigate(url);
+    } else {
+      setSelectedCategory('All Products')
+      navigate(url);
+    }
+  };
+
   const renderProductGrid = () => {
     const startIndex = (currentPage - 1) * 16;
     const endIndex = startIndex + 16;
@@ -95,15 +109,9 @@ const Products = () => {
       <div className='products'>
         {loading
           ?
-            <div className='products'>
-              {[...Array(16)].map((_, index) => (
-                <div className='product' key={index}>
-                  <Skeleton.Image active={true} className='skeleton-thumbnail' style={{ width: '220px', height: '220px', marginBottom: '10px'}} />
-                  <Skeleton.Input active={true} style={{margin: '5px'}} size='small' />
-                  <Skeleton.Input active={true} style={{margin: '5px'}} size='small' />
-                </div>
-              ))}
-            </div>
+          <div className="spinner">
+            <Spin size="large" />
+          </div>
           : productsToRender.map((product) => {
               const ratingStars = [];
               const rating = Math.round(product.rating);
@@ -116,13 +124,13 @@ const Products = () => {
               const emptyStars = Array(5 - ratingStars.length).fill(<StarOutlined style={{ color: 'orange' }} className="productStar" />);
               return (
                 <div className='product' key={product.id}>
-                  <img className='productTN' src={product.thumbnail} alt={product.title} />
-                  <div className='product-Icons'>
-                    <SearchOutlined onClick={()=> handleProductClick(product.id)} className='product-icon' style={{  color: 'gray', fontSize: '28px', cursor: 'pointer'}}/>
-                    <ShoppingCartOutlined onClick={()=> addToCartFunc({product})} className='product-icon'  style={{ color: 'gray', fontSize: '28px', cursor: 'pointer'}}/>
-                  </div>
+                    <p className='product-icon-top'>Save</p>
                   <div className='productDetails'>
-                    <p className='productTitle'>{product.title}</p>
+                  <div className='productDescription'>
+                    <p className='productTitle'>{product.title.toUpperCase()}</p>
+                    <p>{product.description.split(' ').slice(0, 4).join(' ').toUpperCase()}</p>
+                  </div>
+                    <img onClick={()=> handleProductClick(product.id)} className='productTN' src={product.thumbnail} alt={product.title} />
                     <div className='productRating'>
                       {ratingStars}
                       {emptyStars}
@@ -132,6 +140,7 @@ const Products = () => {
                       <p className='productPrice'>${ product.price - ((product.price * product.discountPercentage) / 100).toFixed(2) }</p>
                     </div>
                   </div>
+                  <p onClick={()=> addToCartFunc({product})} className='product-icon-bottom'>ADD TO CART <UpOutlined/></p>
                 </div>
               );
             })
@@ -142,7 +151,15 @@ const Products = () => {
   };
 
   return (
-    <>
+    <div className='product-div'>
+          <div className="navbar__search">
+            <Input.Search
+              placeholder="SEARCH"
+              allowClear
+              onSearch={handleSearch}
+              enterButton
+            />
+          </div>
         {renderProductGrid()}
         <Pagination
             current={currentPage}
@@ -151,7 +168,7 @@ const Products = () => {
             onChange={handlePageChange}
             style={{ marginBottom: '50px', textAlign: 'center' }}
         />
-    </>
+    </div>
   );
 };
 

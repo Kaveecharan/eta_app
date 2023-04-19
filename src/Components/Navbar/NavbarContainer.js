@@ -4,8 +4,10 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
 const NavbarContainer = () => {
-  const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('All Products');
+  const [firstFiveCategories, setFirstFiveCategories] = useState([]);
+  const [remainingCategories, setRemainingCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('All Products')
+  const [otherCategory, setOtherCategory] = useState('Others')
   const navigate = useNavigate();
 
 
@@ -13,8 +15,11 @@ const NavbarContainer = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/categories`);
-        const categoriesList = ['All Products', ...response?.data.map(category => category.charAt(0).toUpperCase() + category.slice(1))];
-        setCategories(categoriesList);
+        const fiveCategories = response?.data.slice(0, 5).map(category => category.charAt(0).toUpperCase() + category.slice(1));
+        fiveCategories.unshift("All Products");
+        const balanceCategories = response?.data.slice(5).map(category => category.charAt(0).toUpperCase() + category.slice(1));
+        setFirstFiveCategories(fiveCategories);
+        setRemainingCategories(balanceCategories);
         } catch (error) {
         console.log(error);
       }
@@ -24,31 +29,25 @@ const NavbarContainer = () => {
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
+    setOtherCategory('Others');
     const url = category === 'All Products' ? '/' : `/products?category=${category}`;
     navigate(url);
   };
 
-  const handleSearch = (value) => {
-    let url = '/';
-    if (value) {
-      url += `?search=${value}`;
-      setSelectedCategory('All Products')
-      navigate(url);
-    } else {
-      setSelectedCategory('All Products')
-      navigate(url);
-    }
+  const handleOtherCategoryChange = (category) => {
+    setOtherCategory(category);
+    const url = category === 'Others' ? '/' : `/products?category=${category}`;
+    navigate(url);
   };
   
-  
-
-
   return (
     <Navbar
-      categories={categories}
+      firstFiveCategories={firstFiveCategories}
+      remainingCategories={remainingCategories}
       selectedCategory={selectedCategory}
       handleCategoryChange={handleCategoryChange}
-      handleSearch={handleSearch}
+      handleOtherCategoryChange={handleOtherCategoryChange}
+      otherCategory={otherCategory}
     />
   );
 };

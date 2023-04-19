@@ -1,0 +1,103 @@
+.accordion-main-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .accordion-image{
+    width: 50%;
+    object-fit: cover;
+    margin-left: 28%
+  }
+
+.accordion {
+
+    .accordion-heading{
+        padding-bottom: 10px;
+        border-bottom: 1px solid #8b8b8b;
+    }
+
+    .accordion-heading h1{
+        font-size: 20px;
+        font-weight: 600;
+        font-family: 'Rajdhani';
+    }
+
+    .accordion-filters{
+        margin: 15px 0 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+     p{
+        font-size: 16px;
+        font-family: 'Rajdhani';
+        color: #B2824A;
+     }
+    }
+
+    #accordion-filter{
+        font-size: 16px;
+        font-family: 'Rajdhani';
+        color: #666;
+    }
+
+    margin-top: 20px;
+  
+    .ant-collapse-item {
+      border: none;
+  
+      &.ant-collapse-item-active {
+        border: none;
+      }
+  
+      .ant-collapse-header {
+        font-size: 15px;
+        font-weight: bold;
+        color: #222;
+        margin: 5px 0;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #f0f2f5;
+        }
+  
+        .ant-collapse-arrow {
+          font-size: 20px;
+          color: #222;
+        }
+      }
+  
+      .ant-collapse-content {
+        padding: 0 20px;
+  
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+  
+          li {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+            cursor: pointer;
+  
+            &:hover {
+              color: #222;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  
+  .accordion-antd{
+    border: 0;
+  }
+
+  .filter-buttons{
+    width: 70%;
+    margin: auto;
+  }
