@@ -7,7 +7,7 @@ import SideImage from '../../Assests/SideImage.png'
 const { Panel } = Collapse;
 
 const Accordion = () => {
-  const [activeKey, setActiveKey] = useState('0');
+  const [activeKey, setActiveKey] = useState(null);
 
   const handleAccordionChange = (key) => {
     setActiveKey(key);

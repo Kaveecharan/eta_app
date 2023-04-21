@@ -42,7 +42,7 @@ const SelectedProduct = () => {
       }
     };
     fetchProduct();
-  }, []);
+  }, [productId]);
 
   useEffect(()=>{
     const fetchCatProducts=async()=>{

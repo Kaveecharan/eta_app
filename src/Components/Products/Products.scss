@@ -11,7 +11,7 @@
   color: #fff;
 }
 
-.products {
+.products-container {
   width: 96%;
   margin: auto;
   display: flex;
@@ -128,11 +128,11 @@
   }
 }  
 
-.product-div{
+.product-container-div{
   width: 90%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   margin-top: 50px;
   position: relative;

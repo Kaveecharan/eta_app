@@ -106,7 +106,7 @@ const Products = () => {
     const productsToRender = products.slice(startIndex, endIndex);
   
     return (
-      <div className='products'>
+      <div className='products-container'>
         {loading
           ?
           <div className="spinner">
@@ -151,7 +151,7 @@ const Products = () => {
   };
 
   return (
-    <div className='product-div'>
+    <div className='product-container-div'>
         <div className="search-bar">
             <Search 
               placeholder="SEARCH"
