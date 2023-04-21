@@ -110,8 +110,8 @@ const SelectedProduct = () => {
           <Breadcrumb.Item>{product?.title?.toUpperCase()}</Breadcrumb.Item>
         </Breadcrumb>
       </div>
-      <Row  gutter={[24, 24]}>
-        <Col flex={1}>
+      <Row>
+        <Col span={7}>
           <div className="product-details-card">
             <p className='productBrand'>{product.brand?.toUpperCase()}</p>
             <Meta title={product.title?.toUpperCase()} description={product.description?.toUpperCase()} />
@@ -133,7 +133,7 @@ const SelectedProduct = () => {
             </Button>
           </div>
         </Col>
-        <Col flex={1}>
+        <Col span={7}>
           <div className="product-image-container">
             <Image className="thumb-image" src={selectedImage} preview={true} />
             <div className="image-list">
@@ -152,7 +152,7 @@ const SelectedProduct = () => {
             </div>
           </div>
         </Col>
-        <Col  flex={1} className="product-selection">
+        <Col  span={7} className="product-selection">
           <div className="size-options">
             <Title className="size-heading" level={5}>Size Options</Title>
             <div className="case-option">
