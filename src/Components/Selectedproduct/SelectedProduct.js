@@ -160,14 +160,14 @@ const SelectedProduct = () => {
               <Button className="option-button" type="primary" icon={<MinusOutlined />} size="large" onClick={() => handleCaseCountChange('decrement')} />
               <span className="count-span">{caseCount}</span>
               <Button className="option-button" type="primary" icon={<PlusOutlined />} size="large" onClick={() => handleCaseCountChange('increment')} />
-              <span>${10*caseCount}</span>
+              <span>${caseCount == 0 ? '00' : 10 * caseCount}</span>
             </div>
             <div className="each-option">
               <span>Each</span>
               <Button className="option-button" type="primary" icon={<MinusOutlined />} size="large" onClick={() => handleEachCountChange('decrement')} />
               <span className="count-span">{eachCount}</span>
               <Button className="option-button" type="primary" icon={<PlusOutlined />} size="large" onClick={() => handleEachCountChange('increment')} />
-              <span>${2*eachCount}</span>
+              <span>${eachCount == 0 ? '00' : 2 * eachCount}</span>
             </div>
           </div>
         </Col>
