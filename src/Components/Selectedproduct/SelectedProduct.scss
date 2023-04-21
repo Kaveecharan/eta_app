@@ -53,22 +53,47 @@
   font-family: 'Josefin Sans';
   font-size: 18px;
   font-weight: 600;
+  margin-left: 60px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  overflow: auto;
 
   .ant-card-meta-title {
     font-size: 24px;
     font-weight: bold;
+    font-family: 'Barlow Condensed';
+    margin: 10px 0;
   }
 
   .ant-card-meta-description {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: bold;
+    color: #000;
+    font-family: 'Barlow Condensed';
   }
 
-  .product-details-brand {
-    font-weight: bold;
-    margin-bottom: 20px;
+  .product-details-rating {
+    margin: 10px 0 20px 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+  }
+
+  .productBrand{
+    font-family: 'Barlow Condensed';
+    font-weight: bold;
+    font-size: 21px;
+  }
+
+  .product-detail{
+    margin-left: 15px;
+  }
+
+  .productPrice{
+    margin-bottom: 20px;
   }
   
   .product-details-price {
@@ -94,16 +119,11 @@
 }
 
 .breadcrumb {
-  margin: 40px 0 0 80px;
+  margin: 40px 0 0 60px;
 }
 
-// .product-details-tab{
-//   border: 5px solid saddlebrown;
-//   width: 100%;
-// }
-
 .product-details-tab {
-  width: 100%;
+    width: 100%;
     margin: auto;
     display: flex;
     align-items: center;
@@ -113,8 +133,12 @@
 
   .ant-tabs-tab {
     font-size: 26px;
-    font-family: 'Titillium Web';
+    font-family: 'Barlow Condensed';
     font-weight: 600;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .ant-tabs-tabpane {
@@ -129,7 +153,47 @@
 }
 }
 
+.product-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 50px;
 
-.product-detail{
-  margin-left: 30px;
+  .size-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+
+    .size-heading{
+      color: #B2824A;
+    }
+
+    .option-button{
+      color: #000;
+      background: rgb(211, 211, 211);
+      margin: 0 20px;
+      border-radius: 50%;
+    }
+
+    .count-span{
+      border: 1.5px solid #B2824A;
+      padding: 8px 15px;
+    }
+
+    .case-option,
+    .each-option {
+      width: 100%;
+      font-family: 'Open Sans';
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 10px;
+      padding: 8px 20px;
+      border: 1px solid rgb(235, 233, 233);
+      background: rgb(243, 243, 243);
+    }
+  }
 }

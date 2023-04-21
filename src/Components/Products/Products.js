@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Skeleton, Pagination, Input, Spin  } from 'antd';
-import { StarFilled, StarOutlined, StarTwoTone } from '@ant-design/icons';
-import { UpOutlined } from '@ant-design/icons';
+import { Pagination, Input, Spin } from 'antd';
+import { StarFilled, StarOutlined, StarTwoTone, SearchOutlined, UpOutlined } from '@ant-design/icons';
 import { Empty } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +19,7 @@ const Products = () => {
   const navigate = useNavigate()
 
   const location = useLocation();
+  const { Search } = Input;
 
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
@@ -123,12 +123,12 @@ const Products = () => {
               }
               const emptyStars = Array(5 - ratingStars.length).fill(<StarOutlined style={{ color: 'orange' }} className="productStar" />);
               return (
-                <div className='product' key={product.id}>
+                <div className='single-product' key={product.id}>
                     <p className='product-icon-top'>Save</p>
                   <div className='productDetails'>
                   <div className='productDescription'>
                     <p className='productTitle'>{product.title.toUpperCase()}</p>
-                    <p>{product.description.split(' ').slice(0, 4).join(' ').toUpperCase()}</p>
+                    <p className='productTitleDiscription'>{product.description.split(' ').slice(0, 4).join(' ').toUpperCase()}</p>
                   </div>
                     <img onClick={()=> handleProductClick(product.id)} className='productTN' src={product.thumbnail} alt={product.title} />
                     <div className='productRating'>
@@ -152,14 +152,13 @@ const Products = () => {
 
   return (
     <div className='product-div'>
-          <div className="navbar__search">
-            <Input.Search
+        <div className="search-bar">
+            <Search 
               placeholder="SEARCH"
               allowClear
               onSearch={handleSearch}
-              enterButton
-            />
-          </div>
+              enterButton={<SearchOutlined />} />
+        </div>
         {renderProductGrid()}
         <Pagination
             current={currentPage}
